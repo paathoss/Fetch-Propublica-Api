@@ -1,0 +1,276 @@
+body{
+   padding-left: 5%;
+   padding-right: 5%;
+}
+
+header{
+    margin-top: 5px;
+}
+
+.tittle1{
+    margin-left: 100px;
+    position: absolute;
+}
+
+.lupita{
+    width: 10px;
+    height: 10px;
+}
+
+.tittle2{
+    margin-top: -35px;
+    float: right;    
+    color: rgba(22,182,241,255);
+}
+
+.mail{
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 45%;
+}
+
+nav{
+    margin-top: 20px;
+}
+
+.home, .home2{
+    width: 70px;
+
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    
+    padding-top: 5px;
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.home{
+    background-color: rgba(204,204,204,255);
+}
+
+
+.nav{
+    background-color: rgba(238,238,238,255);
+    display: flex;
+    flex-direction: row;
+    
+    height: 42px;
+    border: 2px solid black; 
+}
+
+.dropdown-menu{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.btn-secondary{
+    background-color:   rgb(163, 163, 163) !important;
+    border: 1px solid rgb(163, 163, 163) !important; 
+    border-radius: 0px !important;
+   
+}
+
+#dropdown2{
+    margin-left: 50px;
+  
+}
+
+#dropdown3{
+    margin-left: 50px;
+}
+
+.text{
+    font-size: small;
+    margin-top: 25px;
+    padding-right: 40%;
+}
+
+.lupa{ 
+    display: flex;
+   float: right;
+
+    height: 300px;
+ 
+    right: 7.5%;
+    
+    margin-top: 100px;
+}
+
+
+th{
+    padding: 0px !important;
+    color: black;
+}
+
+
+table, th, td {
+    padding: 5px !important;
+    font-size: small;
+    width: 10%;
+    margin-top: 20px;
+    font-style: normal;
+    text-align: center;
+  }
+
+#caja1{
+    position: absolute;
+    margin-top: -20%;
+    margin-left: 55%;
+    width: 35%;
+    height: 25%;
+}
+
+#caja2, #caja3{
+    width: 45%;
+    height: 25%;
+}
+
+#caja2{
+
+    margin-left: -55%;
+}
+
+#caja3{
+    position: absolute;
+    margin-left: 45%;
+}
+
+#caja23{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+#caja12{
+    position: absolute;
+    margin-top: -19%;
+    margin-left: 55%;
+    width: 35%;
+    height: 25%;
+}
+
+#caja22, #caja32{
+    width: 45%;
+    height: 25%;
+}
+
+#caja22{
+
+    margin-left: -55%;
+}
+
+#caja32{
+    position: absolute;
+    margin-left: 45%;
+}
+
+
+#glance{
+    margin-left: 70%;
+    margin-top: -3.6%;
+    position: absolute;
+}
+
+#glance2{
+    margin-left: 69.5%;
+    margin-top: -4.6%;
+    position: absolute;
+}
+
+.mostTexto{
+    display: flex;
+    justify-content: right;
+    margin-right: 0%;
+}
+
+.leastTexto{
+    float: left;
+}
+
+
+.mostTexto2{
+    display: flex;
+    justify-content: right;
+    margin-right: 0%;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.leastTexto2{
+    float: left;
+    text-align: center;
+    margin-right: 0%;
+    font-size: 1.6rem;
+}
+
+
+#testo{
+    margin-top: 0%;
+    padding-right: 20%;
+}
+
+.linea{
+    margin-top: 0%;
+}
+
+.linea2{
+    margin-top: 15%;
+}
+
+footer{
+    background-color: rgba(238,238,238,255);
+    display: flex;
+    flex-direction: row;
+    
+    margin-bottom: 25px;
+    height: 50px;
+    border: 2px solid black; 
+}
+
+.footertext{
+    padding-top: 5px;
+    margin-left: 40%;
+}
+
+#loader{
+    position: absolute;
+    display: flex;
+    align-self: center;
+    margin-top: 6%;
+    margin-left: 45.50%;
+}
+
+#loader2{
+    position: absolute;
+    display: flex;
+    align-self: center;
+    margin-top: 6%;
+    margin-left: -50%;
+}
+
+#loader3{
+    position: absolute;
+    display: flex;
+    align-self: center;
+    margin-top: 5%;
+    margin-left: 45.50%;
+}
+
+#tableFiltro{
+    margin-bottom: 4% ;
+}
+
+
+#app{
+    margin-bottom: 2.5%;
+
+}

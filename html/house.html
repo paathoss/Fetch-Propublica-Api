@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>House</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- <link rel="stylesheet" href="bootstrap 5/js/bootstrap.bundle.min.js"> -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+
+
+
+<body>
+  <header>
+
+    <div class="lupita">
+      <img src="../img/image2.png" alt="lupa">
+    </div>
+
+    <h1 class="tittle1">Data Insight Group</h1>
+
+    <div class="mail">
+      <img src="../img/image3.png" alt="">
+    </div>
+
+    <h4 class="tittle2">info@datainsightgroup.net</h4>
+
+  </header>
+
+  <nav>
+
+    <div class="nav">
+      <a href="./home.html" class="home2">Home</a>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Congress 113
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">House</a></li>
+          <li><a class="dropdown-item" href="./senate.html">Senate</a></li>
+        </ul>
+      </div>
+
+
+      <div id="dropdown2" class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Attendance
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="./House Attendance.html">House</a></li>
+          <li><a class="dropdown-item" href="./Senate Attendance.html">Senate</a></li>
+        </ul>
+      </div>
+
+
+      <div id="dropdown3" class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Party Loyalty
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="./House Party Loyalty.html">House</a></li>
+          <li><a class="dropdown-item" href="./Senate Party Loyalty.html">Senate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+
+  </nav>
+  <div class="text">
+    <h2>Congressmen</h2>
+    <p>The major power of the House is to pass federal legislation that affects the entire country, although its bills
+      must also be passed by the Senate and further agreed to by the U.S. President before becoming law (unless both the
+      House and Senate re-pass the legislation with a two-thirds majority in each chamber). The House has some exclusive
+      powers: the power to initiate revenue bills, to impeach officials (impeached officials are subsequently tried in
+      the Senate), and to elect the U.S. President in case there is no majority in the Electoral College.</p>
+    <p>Each U.S. state is represented in the House in proportion to its population as measured in the census, but every
+      state is entitled to at least one representative. </p>
+  </div>
+
+
+
+           <thead>
+               <tr><th>Name</th>
+               <th>Party <br>
+                <label> <input onchange="filters()" type="checkbox" name="partidos" value="D" id="republic">Democrat</label><br>
+                  <label> <input onchange="filters()" type="checkbox" name="partidos" value="R" id="democrat">Republican</label><br>
+                  <label> <input onchange="filters()" type="checkbox" name="partidos" value="ID"  id="independent">Indepedent</label>
+               </th>
+               
+               <th>State <br>
+                <select onchange="filters()" id="stateSelect">
+                  <option value="ALL" selected="">All</option>
+               </select>
+              </th>
+               
+               <th>Years in Office</th>
+               
+               <th>% Votes w/ Party</th>
+               </tr>
+          </thead>
+           <tbody id="json">
+            
+            
+          </tbody>
+      </table>   -->
+
+  <div id="app">
+    <table id="tableFiltro" class="table table-bordered border-dark">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Party
+            <input type="checkbox" v-model="checkbox" name="partidos" value="D" id="democrat">
+            <label for="democrat">Democrat</label><br>
+
+            <input type="checkbox" v-model="checkbox" name="partidos" value="R" id="republic">
+            <label for="republic">Republican</label><br>
+
+            <input type="checkbox" v-model="checkbox" name="partidos" value="ID" id="independent">
+            <label for="independent">Indepedent</label>
+          </th>
+          <th>State
+            <select v-model="stateSelected">
+              <option>All</option>
+              <option v-for="member in senators">{{member.state}}</option>
+            </select>
+          </th>
+
+          <th>Years in Office</th>
+          <th>% of Votes /w Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="member in senators"
+          v-if="(filter(member.party) === true && (stateSelected === member.state || stateSelected === '' || stateSelected === 'All')) 
+          || checkbox.length == 0 && (stateSelected === member.state || stateSelected === '' || stateSelected === 'All')">
+          <td> <a :href="member.url">{{member.first_name}} {{member.middle_name ||''}} {{member.last_name}}</a></td>
+          <td>{{member.party}}</td>
+
+          <div id="loader" class="spinner-border" role="status">
+            <span class="sr-only"></span>
+          </div>
+
+          <td>{{member.state}}</td>
+          <td>{{member.seniority}}</td>
+          <td>{{member.votes_with_party_pct}}%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+  <footer>
+    <h4 class="footertext">2021 Data Insight Group | All Rights Reserved </h4>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../script/main.js"></script>
+
+</body>
+
+</html>

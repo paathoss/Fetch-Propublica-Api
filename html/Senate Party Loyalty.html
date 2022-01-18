@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Senate</title>
+  <!-- <link rel="stylesheet" href="../../bootstrap 5/js/bootstrap.bundle.min.js"> -->
+  <link rel="stylesheet" href="../css/style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+  <header>
+
+    <div class="lupita">
+      <img src="../img/image2.png" alt="lupa">
+    </div>
+
+    <h1 class="tittle1">Data Insight Group</h1>
+
+    <div class="mail">
+      <img src="../img/image3.png" alt="">
+    </div>
+
+    <h4 class="tittle2">info@datainsightgroup.net</h4>
+
+  </header>
+  <nav>
+
+    <div class="nav">
+      <a href="./home.html" class="home2">Home</a>
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Congress 113
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="./house.html">House</a></li>
+          <li><a class="dropdown-item" href="./senate.html">Senate</a></li>
+        </ul>
+      </div>
+
+
+      <div id="dropdown2" class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Attendance
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="./House Attendance.html">House</a></li>
+          <li><a class="dropdown-item" href="./Senate Attendance.html">Senate</a></li>
+        </ul>
+      </div>
+
+
+      <div id="dropdown3" class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          Party Loyalty
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="./House Party Loyalty.html">House</a></li>
+          <li><a class="dropdown-item" href="#">Senate</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+  </nav>
+
+  <!--Table container-->
+  <div class="text">
+
+    <h2>Party Loyalty</h2>
+    <h2 id="glance">Senate at a glance</h2>
+    <p id="testo">Those who consider themselves to be strong partisans, strong Democrats and strong Republicans
+      respectively, tend to be the most faithful in voting for their party's nominee for office and legislation that
+      backs their party's agenda. </p>
+
+    <h4 class="linea2">
+      _____________________________________________________________________________________________________________________
+    </h4>
+  </div>
+
+
+  <h2 class="leastTexto">Least Loyal (Bottom 10% of Party)</h2>
+  <h2 class="mostTexto">Most Loyal (Top 10% of Party)</h2>
+
+
+  <div id="app">
+    <div id="statisticsTabla">
+
+
+      <table id="caja12" class="table table-bordered border-dark">
+        <thead >
+          <tr>
+            <th>Party</th>
+            <th>Number Party Votes</th>
+
+            <th>% Voted w/ Party</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Democrat</td>
+            <td>{{statistics.numberD}}</td>
+            <td>{{statistics.votesPerD[0]}}%</td>
+          </tr>
+
+          <tr>
+            <td>Republican</td>
+            <td>{{statistics.numberR}}
+            <td>{{statistics.votesPerR[0]}}%</td>
+          </tr>
+          <tr>
+            <td>Independent</td>
+            <td>{{statistics.numberID}}</td>
+            <td>{{statistics.votesPerID[0]}}%</td>
+          </tr>
+          <tr>
+            <td>Total</td>
+            <td>{{statistics.numberTotal}}</td>
+            <td>{{statistics.votesPerTotal[0]}}%</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+      <div id="caja23">
+        <table id="caja22" class="table table-bordered border-dark">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Number Party Votes</th>
+              <th>% Party Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="member in statistics.topLoyalS">
+              <td> <a :href="member.url">{{member.first_name}} {{member.middle_name ||''}} {{member.last_name}}</a></td>
+              <td>{{Math.round((member.total_votes - member.missed_votes) * member.votes_with_party_pct / 100)}}</td>
+
+              <div id="loader2" class="spinner-border" role="status">
+                <span class="sr-only"></span>
+              </div>
+
+              <td>{{member.votes_with_party_pct}}%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table id="caja32" class="table table-bordered border-dark">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Number Party Votes</th>
+              <th>% Party Votes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="member in statistics.leastLoyalS">
+
+
+              <td> <a :href="member.url">{{member.first_name}} {{member.middle_name ||''}} {{member.last_name}}</a></td>
+              <td>{{Math.round((member.total_votes - member.missed_votes) * member.votes_with_party_pct / 100)}}</td>
+
+              <div id="loader" class="spinner-border" role="status">
+                <span class="sr-only"></span>
+              </div>
+
+              <td>{{member.votes_with_party_pct}}%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h4 class="footertext">2021 Data Insight Group | All Rights Reserved </h4>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="../script/main.js"></script>
+</body>
+
+</html>
